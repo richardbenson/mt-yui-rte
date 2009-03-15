@@ -1,0 +1,10 @@
+name: YUI Editor
+version: 1.1
+author_name: Richard Benson
+author_link: http://www.richardbenson.co.uk
+description: Puts the YUI editor into MT
+
+richtext_editors:
+    yuieditor:
+        label: YUIEditor
+        template: yui_editor.tmpl
