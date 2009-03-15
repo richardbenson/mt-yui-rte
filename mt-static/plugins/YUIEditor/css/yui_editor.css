@@ -1,0 +1,51 @@
+/* Some fixes needed to make YUI work in MT without changing the MT core */
+
+.edit-entry fieldset h3 {
+	display: inline;
+}
+
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-editcode span.yui-toolbar-icon,
+.yui-skin-sam .yui-toolbar-container .yui-button-editcode-selected span.yui-toolbar-icon {
+    background-image: url( ../assets/html_editor.gif );
+    background-position: 0 1px;
+    left: 5px;
+}
+
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-fullscreen span.yui-toolbar-icon,
+.yui-skin-sam .yui-toolbar-container .yui-button-fullscreen-selected span.yui-toolbar-icon {
+    background-image: url( ../assets/full_screen.gif );
+    background-position: 3px 2px;
+    left: 5px;
+}
+
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-insertfile span.yui-toolbar-icon,
+.yui-skin-sam .yui-toolbar-container .yui-button-insertfile-selected span.yui-toolbar-icon {
+    background-image: url( ../assets/insert_file.gif );
+    background-position: 3px 3px;
+    left: 5px;
+}
+
+.editor-hidden {
+    visibility: hidden;
+    top: -9999px;
+    left: -9999px;
+    position: absolute;
+}
+
+#editor-content-textarea {
+	height: 100%;
+	border: 0;
+}
+
+.yui-toolbar-container span.yui-toolbar-separator-1,
+.yui-toolbar-container span.yui-toolbar-separator-2,
+.yui-toolbar-container span.yui-toolbar-separator-3,
+.yui-toolbar-container span.yui-toolbar-separator-4,
+.yui-toolbar-container span.yui-toolbar-separator-5 {
+    margin: 0 0.7em;
+}
+
+
+/*#field-convert_breaks {
+	display: none;
+}*/
