@@ -1,0 +1,10 @@
+name: YUI Editor
+version: 0.9.5
+author_name: Dixcart Technical Solutions
+author_link: http://www.dixcart.com/it
+description: Puts the YUI editor into MT
+
+richtext_editors:
+    yuieditor:
+        label: YUIEditor
+        template: yui_editor.tmpl
