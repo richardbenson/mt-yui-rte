@@ -1,0 +1,49 @@
+<mt:setvarblock name="js_include" append="1">
+    <script type="text/javascript" src="<$mt:var name="static_uri"$>plugins/YUIEditor/js/yui_editor.js?v=<$mt:var name="mt_version" escape="url"$>"></script>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" prepend="1">
+	<!-- Skin CSS file -->
+	<link rel="stylesheet" type="text/css" href="<$mt:var name="static_uri"$>plugins/yui/assets/skins/sam/skin.css">
+	
+	<!-- CSS Fixes -->
+	<link rel="stylesheet" type="text/css" href="<$mt:var name="static_uri"$>plugins/YUIEditor/css/yui_editor.css">
+	
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        if ( !defined( window.Editor ) )
+            Editor = { strings: {} };
+        else
+            Editor.strings = {};
+        /* ]]> */
+    </script>	
+</mt:setvarblock>
+
+<mt:setvarblock name="editor_content">
+            <div id="formatted" class="editor-panel">
+                <div id="entry-body-field" class="field">
+                    <div class="field-content">
+                        <mt:setvarblock name="editor_content_height">300</mt:setvarblock>
+                        <div class="editor" id="editor-content-enclosure" mt:min-height="66" mt:update-field-height="editor-content-height" style="height: <$mt:var name="editor_content_height"$>px; position:relative; padding-bottom: 10px;" mt:edit-field="<mt:var name="toolbar_edit_field">" mt:blog-id="<mt:var name="blog_id">">
+                            <textarea tabindex="3" id="editor-content-textarea" name="_text_" class="full-width" style="background: #fff; height: <$mt:var name="editor_content_height"$>px"><$mt:var name="text" escape="html"$></textarea>
+                            <input type="hidden" name="text_height" id="editor-content-height" value="<$mt:var name="editor_content_height"$>" />
+                            <input type="hidden" id="editor-input-content" name="text" value="<$mt:var name="text" escape="html"$>" />
+                            <input type="hidden" id="editor-input-extended" name="text_more" value="<$mt:var name="text_more" escape="html"$>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+	<!-- Utility Dependencies -->
+	<script type="text/javascript" src="<$mt:var name="static_uri"$>plugins/yui/yahoo-dom-event/yahoo-dom-event.js"></script> 
+	<script type="text/javascript" src="<$mt:var name="static_uri"$>plugins/yui/element/element-beta-min.js"></script> 
+	<!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->
+	<script src="<$mt:var name="static_uri"$>plugins/yui/container/container_core-min.js"></script>
+	<script src="<$mt:var name="static_uri"$>plugins/yui/menu/menu-min.js"></script>
+	<script src="<$mt:var name="static_uri"$>plugins/yui/button/button-min.js"></script>
+	<!-- Source file for Rich Text Editor-->
+	<script src="<$mt:var name="static_uri"$>plugins/yui/editor/editor-beta.js"></script>
+
+</mt:setvarblock>
+
+<mt:setvarblock name="screen_class"><$mt:var name="screen_class"$> yui-skin-sam</mt:setvarblock>
