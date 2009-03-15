@@ -1,7 +1,7 @@
 //Config file for MT YUI integration
 
 //Set so that you can use a local copy of YUI for your build folder
-var ConfigYUIBase = "http://yui.yahooapis.com/2.6.0/build/"; //Using Yahoo! servers
+var ConfigYUIBase = "http://yui.yahooapis.com/2.7.0/build/"; //Using Yahoo! servers
 //var ConfigYUIBase = StaticURI + 'plugins/yui/'; //Local
 
 //Set this to false to use the default YUI image loader

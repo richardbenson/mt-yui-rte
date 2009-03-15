@@ -23,6 +23,12 @@ http://www.richardbenson.co.uk/projects/yui-rich-text-editor-in-movabl.html
 -------------------------------
 VERSION NOTES:
 -------------------------------
+1.2
+	~ Update to YUI 2.7.0
+
+1.1
+	~ Update to YUI 2.6.0
+
 1.0
     ~ Adjusted width to make toolbar acceptable in IE6
 
