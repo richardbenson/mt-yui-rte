@@ -14,5 +14,5 @@ function LoadYUI() {
 	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "editor/editor-min.js' type='text/javascript'%3E%3C/script%3E"));
 	
 	//Connection mannager
-	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "editor/connection-min.js' type='text/javascript'%3E%3C/script%3E"));
+	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "connection/connection-min.js' type='text/javascript'%3E%3C/script%3E"));
 };
