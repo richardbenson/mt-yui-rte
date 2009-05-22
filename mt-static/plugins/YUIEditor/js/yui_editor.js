@@ -1,10 +1,38 @@
+// Create root object if it doesn't exist
+if (typeof RB == "undefined" || !RB) {
+    var RB = {};
+}
+
+RB.handleResponse = function(o) {
+	alert(o.responseText);
+}
+
+RB.callback = 
+	{
+		success: RB.handleResponse,
+		failure: function(o){alert("Failed");}
+	};
+
+RB.generateTags = function() {
+	alert("build content");
+	//Get the text content out of the editor
+	var myContent = app.editor.myEditor._getDoc().body.innerHTML.replace(/(<([^>]+))/ig,"");
+	alert("build post");	
+	//Build our POST request
+	var myPostData = "appid=" + app.editor.yahooAppID + "&output=json&context=" + escape(myContent);
+	alert("send content");
+	//Send the request to Yahoo!
+	var myRequest = YAHOO.util.Connect.asyncRequest('POST', 'plugins/YUIEditor/php/proxy.php', RB.callback, myPostData);
+	alert("done send");
+}
 
 MT.App.Editor = new Class( Object, {
 
-	version: '1.0',
+	version: '1.3',
 	
 	useMTAssets: ConfigUseMTAssets,
 	stripFormTags: ConfigStripFormTags,
+	yahooAppID: ConfigYahooAppID,
 	
     mode: "iframe",
     changed: false,
@@ -74,6 +102,20 @@ MT.App.Editor = new Class( Object, {
 						+ "&amp;blog_id=" + div.getAttribute( "mt:blog-id" ) + "&amp;dialog_view=1" );
 				}, this, true);
 			};
+			
+			//Add auto tag button
+			this.toolbar.addSeparator();
+			this.toolbar.addButtonGroup(
+				{ group: 'autotag', label:'Tag',
+					buttons: [
+						{ type: 'push', label: 'Auto Tag', value: 'autotagentry'}
+					]
+				}
+			);
+			
+			this.toolbar.on('autotagentryClick', function() {
+				RB.generateTags();
+			});
 	
 			//Add our view group to the toolbar
 			this.toolbar.addSeparator();
