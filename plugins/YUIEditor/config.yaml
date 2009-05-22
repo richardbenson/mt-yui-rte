@@ -13,7 +13,7 @@ richtext_editors:
 
 settings:
     ConfigYUIBase:
-        default: "http://yui.yahooapis.com/2.6.0/build/"
+        default: "http://yui.yahooapis.com/2.7.0/build/"
         scope: system
     ConfigUseMTAssets:
         default: true
@@ -26,4 +26,6 @@ settings:
         scope: blog
     ConfigMarkupType:
         default: xhtml
+        scope: blog
+    ConfigYahooAppID:
         scope: blog

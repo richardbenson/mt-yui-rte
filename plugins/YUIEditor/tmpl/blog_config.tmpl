@@ -40,3 +40,10 @@
   <option value="xhtml" <TMPL_IF NAME=ConfigMarkupType_xhtml>selected="selected"</TMPL_IF>>XHTML</option>
 </select>
 </mtapp:setting>
+<mtapp:setting
+   id="ConfigYahooAppID"
+   label="Yahoo! appid"
+   hint="For auto-tagging to work, you need an appid from Yahoo!."
+   show_hint="1">
+<input type="text" name="ConfigYahooAppID" id="ConfigYahooAppID" value="<mt:var name="ConfigYahooAppID">" />
+</mtapp:setting>
