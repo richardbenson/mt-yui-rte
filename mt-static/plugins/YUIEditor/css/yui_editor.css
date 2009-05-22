@@ -4,6 +4,13 @@
 	display: inline;
 }
 
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-autotagentry span.yui-toolbar-icon,
+.yui-skin-sam .yui-toolbar-container .yui-button-autotagentry-selected span.yui-toolbar-icon {
+    background-image: url( ../assets/tag_icon.gif );
+    background-position: 2px 1px;
+    left: 5px;
+}
+
 .yui-skin-sam .yui-toolbar-container .yui-toolbar-editcode span.yui-toolbar-icon,
 .yui-skin-sam .yui-toolbar-container .yui-button-editcode-selected span.yui-toolbar-icon {
     background-image: url( ../assets/html_editor.gif );
