@@ -12,5 +12,7 @@ function LoadYUI() {
 	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "button/button-min.js' type='text/javascript'%3E%3C/script%3E"));
 	//Source file for Rich Text Editor
 	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "editor/editor-min.js' type='text/javascript'%3E%3C/script%3E"));
-
+	
+	//Connection mannager
+	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "editor/connection-min.js' type='text/javascript'%3E%3C/script%3E"));
 };
