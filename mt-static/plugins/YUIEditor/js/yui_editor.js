@@ -3,28 +3,144 @@ if (typeof RB == "undefined" || !RB) {
     var RB = {};
 }
 
-RB.handleResponse = function(o) {
-	alert(o.responseText);
+// Function to aid in making new namespaces
+RB.namespace = function() {
+    var a=arguments, o=null, i, j, d;
+    for (i=0; i<a.length; i=i+1) {
+        d=a[i].split(".");
+        o=RB;
+
+        // RB is implied, so it is ignored if it is included
+        for (j=(d[0] == "RB") ? 1 : 0; j<d.length; j=j+1) {
+            o[d[j]]=o[d[j]] || {};
+            o=o[d[j]];
+        }
+    }
+
+    return o;
 }
 
-RB.callback = 
-	{
-		success: RB.handleResponse,
-		failure: function(o){alert("Failed");}
-	};
+RB.namespace("autotag");
 
-RB.generateTags = function() {
-	alert("build content");
-	//Get the text content out of the editor
-	var myContent = app.editor.myEditor._getDoc().body.innerHTML.replace(/(<([^>]+))/ig,"");
-	alert("build post");	
-	//Build our POST request
-	var myPostData = "appid=" + app.editor.yahooAppID + "&output=json&context=" + escape(myContent);
-	alert("send content");
-	//Send the request to Yahoo!
-	var myRequest = YAHOO.util.Connect.asyncRequest('POST', 'plugins/YUIEditor/php/proxy.php', RB.callback, myPostData);
-	alert("done send");
-}
+RB.autotag = function() {
+	var x = {
+		addTag: function(i, el) {
+			var elTags = YAHOO.util.Dom.get('tags');
+			elTags.value += ", " + RB.autotag.tags[i];
+			el.parentNode.removeChild(el);
+		},
+		
+		//tags: [],
+		
+		handleResponse: function(o) {
+			var messages =[];
+			var strTags = "";
+			messages = YAHOO.lang.JSON.parse(o.responseText);
+			//alert(messages["ResultSet"]["Result"]);
+			RB.autotag.tags = messages["ResultSet"]["Result"];
+			for (var i=0, len=RB.autotag.tags.length; i<len; ++i) {
+				strTags += "<a href='javascript:void(0)' onClick='RB.autotag.addTag(" + i + ", this);return false;'>" + RB.autotag.tags[i] + "<br /></a>";
+			}
+			var el = YAHOO.util.Dom.get('tag_results');
+			el.innerHTML = "<p>" + strTags +"</p>";
+		},
+		
+		callback: {
+			success: function(o){
+				RB.autotag.handleResponse(o);
+			},
+			failure: function(o){
+				alert("Failed");
+			}
+		},
+		
+		generateTags: function() {
+			//Get the text content out of the editor
+			var myContent = app.editor.myEditor._getDoc().body.innerHTML.replace(/(<([^>]+))/ig,"");
+		
+			//Build our POST request
+			var myPostData = "appid=" + app.editor.yahooAppID + "&content=" + escape(myContent);
+		
+			//Send the request to our proxy
+			var myRequest = YAHOO.util.Connect.asyncRequest('POST', 'plugins/YUIEditor/php/proxy.php', RB.autotag.callback, myPostData);
+		},
+		
+	    //The current status of the gutter (true is open)
+	    status: false,
+		
+	    //Placeholder for the Overlay control
+	    gutter: null,
+
+	    createGutter: function() {
+	        //Creating the Overlay
+	        this.gutter = new YAHOO.widget.Overlay('gutter1', {
+	            height: '435px',
+	            width: '300px',
+	            //Setting it the context of the Editor's container
+	            context: [
+	                app.editor.myEditor.get('element'),
+	                'tl',
+	                'tr'
+	            ],
+	            //Set the position
+	            position: 'absolute',
+	            //Hide by default
+	            visible: false
+	        });
+
+	        this.gutter.hideEvent.subscribe(function() {
+	            //Deselect the autotag button in the toolbar
+	            app.editor.myEditor.toolbar.deselectButton('autotagentry');
+	            Dom.setStyle('gutter1', 'visibility', 'visible');                
+                Dom.setStyle('gutter1', 'visibility', 'hidden');
+		    }, this, true);
+
+	        this.gutter.showEvent.subscribe(function() {
+	            //Select the autotag button in the toolbar
+	            myEditor.toolbar.selectButton('autotagentry');
+	            //Set the context of the panel (in case it was lost in the animation)
+	            this.gutter.cfg.setProperty('context',[
+	                myEditor.get('element'),
+	                'tl',
+	                'tr'
+	            ]);
+	        }, this, true);
+	
+	        //Set the body of the gutter to hold the HTML needed to render the autocomplete
+	        this.gutter.setBody('<h2>Select Tags</h2><div id="tag_intro"><strong>Click a tag to add it to your entry</strong></div>'+
+				'<div id="tag_results"><p>Retrieving tags...<p></div>');
+	        this.gutter.render(document.body);
+	    },
+	    /*
+	    * Open the gutter using Overlay's show method
+	    */
+	    open: function() {
+	        this.gutter.show();
+			this.generateTags();
+	        this.status = true;
+	    },
+	    /*
+	    * Close the gutter using Overlay's close method
+	    */
+	    close: function() {
+	        this.gutter.hide();
+	        this.status = false;
+	    },
+	    /*
+	    * Check the state of the gutter and close it if it's open
+	    * or open it if it's closed.
+	    */
+	    toggle: function() {
+	        if (this.status) {
+	            this.close();
+	        } else {
+	            this.open();
+	        }
+	    }
+	}
+	
+	return x;
+}();
 
 MT.App.Editor = new Class( Object, {
 
@@ -43,7 +159,7 @@ MT.App.Editor = new Class( Object, {
 		
 		this.myEditor = new YAHOO.widget.Editor('editor-content-textarea', {
 			height: '300px',
-			width: '570px',
+			width: '577px',
 			dompath: true,
 			animate: true,
 			handleSubmit: false,
@@ -103,19 +219,23 @@ MT.App.Editor = new Class( Object, {
 				}, this, true);
 			};
 			
-			//Add auto tag button
-			this.toolbar.addSeparator();
-			this.toolbar.addButtonGroup(
-				{ group: 'autotag', label:'Tag',
-					buttons: [
-						{ type: 'push', label: 'Auto Tag', value: 'autotagentry'}
-					]
-				}
-			);
-			
-			this.toolbar.on('autotagentryClick', function() {
-				RB.generateTags();
-			});
+			//Add auto tag button if a Yahoo! appid exists
+			if (app.editor.yahooAppID) {
+				this.toolbar.addSeparator();
+				this.toolbar.addButtonGroup(
+					{ group: 'autotag', label:'Tag',
+						buttons: [
+							{ type: 'push', label: 'Auto Tag', value: 'autotagentry'}
+						]
+					}
+				);
+						
+				this.toolbar.on('autotagentryClick', function(){
+					RB.autotag.toggle();
+				}, this, true);
+				
+				RB.autotag.createGutter();
+			};
 	
 			//Add our view group to the toolbar
 			this.toolbar.addSeparator();
