@@ -13,6 +13,9 @@ function LoadYUI() {
 	//Source file for Rich Text Editor
 	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "editor/editor-min.js' type='text/javascript'%3E%3C/script%3E"));
 	
-	//Connection mannager
+	//Connection manager
 	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "connection/connection-min.js' type='text/javascript'%3E%3C/script%3E"));
+	
+	//JSON
+	document.write(unescape("%3Cscript src='" + ConfigYUIBase + "json/json-min.js' type='text/javascript'%3E%3C/script%3E"));	
 };
