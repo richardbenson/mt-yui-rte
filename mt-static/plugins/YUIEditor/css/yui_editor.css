@@ -52,6 +52,30 @@
     margin: 0 0.7em;
 }
 
+#gutter1 {
+    overflow: hidden;
+    visibility: hidden;
+    text-align: left;
+}
+
+#gutter1 .bd {
+    border:1px solid #808080;
+    border-left: none;
+    background-color: #F2F2F2;
+    height: 95%;
+    overflow: hidden;
+    width: 249px;
+    margin-top: 10px;
+    padding-left: .25em;
+}
+
+#gutter1 .bd h2 {
+    font-size: 120%;
+    font-weight: bold;
+    margin: 0.5em 0;
+    color: #000;
+    border: none;
+}
 
 /*#field-convert_breaks {
 	display: none;
