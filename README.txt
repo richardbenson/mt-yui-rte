@@ -1,5 +1,5 @@
 YUI Editor for Movabletype 4.x
-v1.0
+v1.3
 -------------------------------
 Developed by Richard Benson
 http://www.richardbenson.co.uk/
@@ -10,19 +10,36 @@ To install:
 1) Copy contents of zip to your MT directory keeping folders intact
 2) Edit mt-config.cgi and add the following line:
 	RichTextEditor YUIEditor
+   OR use the Rich Text Editor Selector plugin from:
+    http://plugins.movabletype.org/rich-text-editor-selector/
 3) Upload and enjoy!
 
 
 To configure:
 
-Several options are available in mt-static/plugins/YUIEditor/config.js,
+Several options are available in the blog settings,
 they are explained in there and at the following web address:
 
 http://www.richardbenson.co.uk/projects/yui-rich-text-editor-in-movabl.html
 
+To enable auto-tag selections you will need to get a Yahoo! appid for each blog,
+from https://developer.yahoo.com/wsregapp/.  You will only need "Generic, No user
+authentication required".
+
 -------------------------------
 VERSION NOTES:
 -------------------------------
+1.3
+    ~ Added auto-tagging of entries to the RTE
+    ~ A new button will appear in the toolbar if you have added a Yahoo! appid to the blog config
+    ~ Packaged in ConfigAssistant to enable the blog settings to work
+
+1.2
+    ~ Update to use 2.7.0 libraries
+
+1.1
+    ~ Update to use 2.6.0 libraries
+
 1.0
     ~ Adjusted width to make toolbar acceptable in IE6
 
