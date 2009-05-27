@@ -3,6 +3,9 @@ v1.3
 -------------------------------
 Developed by Richard Benson
 http://www.richardbenson.co.uk/
+
+Included in the package is ConfigAssistant 0.93 from Byrne Reese
+http://www.majordojo.com/projects/movable-type/config-assistant/
 -------------------------------
 
 To install:
