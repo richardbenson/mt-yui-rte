@@ -1,5 +1,7 @@
 YUI Editor for Movabletype 4.x
 v1.3
+Copyright 2009 Richard Benson
+Released under GPL: http://www.gnu.org/licenses/gpl.txt
 -------------------------------
 Developed by Richard Benson
 http://www.richardbenson.co.uk/
