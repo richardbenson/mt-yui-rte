@@ -19,6 +19,11 @@ To install:
     http://plugins.movabletype.org/rich-text-editor-selector/
 3) Upload and enjoy!
 
+Upgrade notes:
+If you have made changes to config.js, your settings will need to be re-set in
+the blog plugin settings page.  Additionally, if you have made any JavaScript
+customisations to the editor using AfterYUIInit() then that will need to be
+copied to the new config.js.
 
 To configure:
 
