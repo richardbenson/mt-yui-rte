@@ -1,0 +1,47 @@
+id: yuieditor
+name: YUI Editor
+version: 1.3
+author_name: Richard Benson
+author_link: http://www.richardbenson.co.uk
+description: Puts the YUI editor into MT
+blog_config_template: blog_config.tmpl
+
+richtext_editors:
+    yuieditor:
+        label: YUIEditor
+        template: yui_editor.tmpl
+
+settings:
+    ConfigYUIBase:
+        default: "http://yui.yahooapis.com/2.7.0/build/"
+        scope: blog
+    ConfigUseMTAssets:
+        default: true
+        scope: blog
+    ConfigStripFormTags:
+        default: true
+        scope: blog
+    ConfigAutoHeight:
+        default: true
+        scope: blog
+    ConfigMarkupType:
+        default: xhtml
+        scope: blog
+    ConfigYahooAppID:
+        scope: blog
+
+plugin_config:
+    yuieditor:
+        fieldset_1:
+            ConfigYUIBase:
+                tag: 'ConfigYUIBase'
+            ConfigUseMTAssets:
+                tag: 'ConfigUseMTAssets'
+            ConfigStripFormTags:
+                tag: 'ConfigStripFormTags'
+            ConfigAutoHeight:
+                tag: 'ConfigAutoHeight'
+            ConfigMarkupType:
+                tag: 'ConfigMarkupType'
+            ConfigYahooAppID:
+                tag: 'ConfigYahooAppID'
