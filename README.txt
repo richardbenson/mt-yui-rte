@@ -1,5 +1,5 @@
-YUI Editor for Movabletype 4.x
-v1.3
+YUI Editor for Movabletype 5.x
+v2.0
 Copyright 2009 Richard Benson
 Released under GPL: http://www.gnu.org/licenses/gpl.txt
 -------------------------------
@@ -39,6 +39,9 @@ authentication required".
 -------------------------------
 VERSION NOTES:
 -------------------------------
+1.3.1
+	~ Updated for MT5
+
 1.3
     ~ Added auto-tagging of entries to the RTE
     ~ A new button will appear in the toolbar if you have added a Yahoo! appid to the blog config

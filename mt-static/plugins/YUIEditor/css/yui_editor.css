@@ -77,6 +77,10 @@
     border: none;
 }
 
+.edit-entry #editor-content-enclosure {
+	height: auto;
+}
+
 /*#field-convert_breaks {
 	display: none;
 }*/
