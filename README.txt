@@ -1,12 +1,12 @@
 YUI Editor for Movabletype 4.x
-v1.3
+v1.4
 Copyright 2009 Richard Benson
 Released under GPL: http://www.gnu.org/licenses/gpl.txt
 -------------------------------
 Developed by Richard Benson
 http://www.richardbenson.co.uk/
 
-Included in the package is ConfigAssistant 0.93 from Byrne Reese
+Included in the package is ConfigAssistant 1.4 from Byrne Reese
 http://www.majordojo.com/projects/movable-type/config-assistant/
 -------------------------------
 
@@ -39,6 +39,12 @@ authentication required".
 -------------------------------
 VERSION NOTES:
 -------------------------------
+1.4
+	~ Updated ConfigAssistant to 1.4
+	~ Update to use 2.8.0r4 libraries
+	~ Fix full-screen button
+	~ Namespace code and tidy up
+
 1.3
     ~ Added auto-tagging of entries to the RTE
     ~ A new button will appear in the toolbar if you have added a Yahoo! appid to the blog config

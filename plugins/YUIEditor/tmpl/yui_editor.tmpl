@@ -35,8 +35,8 @@
 </mt:setvarblock>
 
 <mt:setvarblock name="editor_content">
-		<div id="editor-content-enclosure" style="position:relative; padding-bottom: 10px;" mt:edit-field="<mt:var name="toolbar_edit_field">" mt:blog-id="<mt:var name="blog_id">">
-			<textarea tabindex="3" id="editor-content-textarea" name="_text_" class="full-width" style="background: #fff; height: 300px"><$mt:var name="text" escape="html"$></textarea>
+		<div id="editor-content-enclosure" style="padding-bottom: 10px;" mt:edit-field="<mt:var name="toolbar_edit_field">" mt:blog-id="<mt:var name="blog_id">">
+			<textarea tabindex="3" id="editor-content-textarea" name="_text_" class="full-width" style=""><$mt:var name="text" escape="html"$></textarea>
 			<input type="hidden" name="text_height" id="editor-content-height" value="<$mt:var name="editor_content_height"$>" />
 			<input type="hidden" id="editor-input-content" name="text" value="<$mt:var name="text" escape="html"$>" />
 			<input type="hidden" id="editor-input-extended" name="text_more" value="<$mt:var name="text_more" escape="html"$>" />

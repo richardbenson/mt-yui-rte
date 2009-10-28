@@ -1,6 +1,6 @@
 id: yuieditor
 name: YUI Editor
-version: 1.3
+version: 1.4
 author_name: Richard Benson
 author_link: http://www.richardbenson.co.uk
 description: Puts the YUI editor into MT
@@ -13,7 +13,7 @@ richtext_editors:
 
 settings:
     ConfigYUIBase:
-        default: "http://yui.yahooapis.com/2.7.0/build/"
+        default: "http://yui.yahooapis.com/2.8.0r4/build/"
         scope: blog
     ConfigUseMTAssets:
         default: true
