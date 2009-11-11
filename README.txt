@@ -40,10 +40,10 @@ authentication required".
 VERSION NOTES:
 -------------------------------
 1.4
-	~ Updated ConfigAssistant to 1.4
-	~ Update to use 2.8.0r4 libraries
-	~ Fix full-screen button
-	~ Namespace code and tidy up
+    ~ Updated ConfigAssistant to 1.4
+    ~ Update to use 2.8.0r4 libraries
+    ~ Fix full-screen button
+    ~ Namespace code and tidy up
 
 1.3
     ~ Added auto-tagging of entries to the RTE
