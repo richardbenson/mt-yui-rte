@@ -23,6 +23,7 @@ options:
         hint: 'Set this if you want to host your own copy of the YUI Library, instead of using Yahoo!\'s CDN.'
         default: 'http://yui.yahooapis.com/2.8.0r4/build/'
         fieldset: yui_advanced
+        scope: blog
     ConfigUseMTAssets:
         tag: 'ConfigUseMTAssets'
         label: 'Image insertion'
@@ -30,6 +31,7 @@ options:
         values: true,false
         hint: 'Use MT Asset manager or YUI image selector.'
         fieldset: yui_basic
+        scope: blog
     ConfigStripFormTags:
         label: 'Strip form tags'
         type: select
@@ -37,6 +39,7 @@ options:
         hint: 'Strip out the form tags that MT Asset manager inserts when you put in a new image.'
         tag: 'ConfigStripFormTags'
         fieldset: yui_basic
+        scope: blog
     ConfigAutoHeight:
         label: 'Stretch Editor'
         hint: 'Stretch editor to fit the content.'
@@ -44,6 +47,7 @@ options:
         values: true,false
         tag: 'ConfigAutoHeight'
         fieldset: yui_basic
+        scope: blog
     ConfigMarkupType:
         label: 'Markup Type'
         hint: 'What markup should YUI use for it's HTML'
@@ -51,10 +55,13 @@ options:
         values: semantic,css,default,xhtml
         fieldset: yui_basic
         tag: 'ConfigMarkupType'
+        scope: blog
     ConfigYahooAppID:
         label: 'Yahoo! appid'
         hint: 'For auto-tagging to work, you need an appid from Yahoo!.'
         type: text
         tag: 'ConfigYahooAppID'
         fieldset: yui_basic
+        scope: blog
+
 
