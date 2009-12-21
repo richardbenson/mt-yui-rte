@@ -4,44 +4,57 @@ version: 1.4
 author_name: Richard Benson
 author_link: http://www.richardbenson.co.uk
 description: Puts the YUI editor into MT
-blog_config_template: blog_config.tmpl
 
 richtext_editors:
     yuieditor:
         label: YUIEditor
         template: yui_editor.tmpl
 
-settings:
+options:
+    fieldsets:
+        yui_basic:
+            label: 'Basic'
+        yui_advanced:
+            label: 'Advanced'
     ConfigYUIBase:
-        default: "http://yui.yahooapis.com/2.8.0r4/build/"
-        scope: blog
+        tag: 'ConfigYUIBase'
+        type: text
+        label: 'YUI build folder'
+        hint: 'Set this if you want to host your own copy of the YUI Library, instead of using Yahoo!\'s CDN.'
+        default: 'http://yui.yahooapis.com/2.8.0r4/build/'
+        fieldset: yui_advanced
     ConfigUseMTAssets:
-        default: true
-        scope: blog
+        tag: 'ConfigUseMTAssets'
+        label: 'Image insertion'
+        type: select
+        values: true,false
+        hint: 'Use MT Asset manager or YUI image selector.'
+        fieldset: yui_basic
     ConfigStripFormTags:
-        default: true
-        scope: blog
+        label: 'Strip form tags'
+        type: select
+        values: true,false
+        hint: 'Strip out the form tags that MT Asset manager inserts when you put in a new image.'
+        tag: 'ConfigStripFormTags'
+        fieldset: yui_basic
     ConfigAutoHeight:
-        default: true
-        scope: blog
+        label: 'Stretch Editor'
+        hint: 'Stretch editor to fit the content.'
+        type: select
+        values: true,false
+        tag: 'ConfigAutoHeight'
+        fieldset: yui_basic
     ConfigMarkupType:
-        default: xhtml
-        scope: blog
+        label: 'Markup Type'
+        hint: 'What markup should YUI use for it's HTML'
+        type: select
+        values: semantic,css,default,xhtml
+        fieldset: yui_basic
+        tag: 'ConfigMarkupType'
     ConfigYahooAppID:
-        scope: blog
+        label: 'Yahoo! appid'
+        hint: 'For auto-tagging to work, you need an appid from Yahoo!.'
+        type: text
+        tag: 'ConfigYahooAppID'
+        fieldset: yui_basic
 
-plugin_config:
-    yuieditor:
-        fieldset_1:
-            ConfigYUIBase:
-                tag: 'ConfigYUIBase'
-            ConfigUseMTAssets:
-                tag: 'ConfigUseMTAssets'
-            ConfigStripFormTags:
-                tag: 'ConfigStripFormTags'
-            ConfigAutoHeight:
-                tag: 'ConfigAutoHeight'
-            ConfigMarkupType:
-                tag: 'ConfigMarkupType'
-            ConfigYahooAppID:
-                tag: 'ConfigYahooAppID'
